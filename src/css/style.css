@@ -1,0 +1,49 @@
+*, ::before, ::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    padding: 2vh;
+    text-align: center;
+}
+
+section{
+    padding: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 35%;
+}
+
+#colors{
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="color"]{
+    width: 100%;
+    margin-top: 0.5vh;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#buttons button:nth-child(1),
+#buttons button:nth-child(2){
+    padding: 0.5em 0.8em;
+}
+
+#buttons button:nth-child(3){
+    padding: 0.5em;
+}
+
+
