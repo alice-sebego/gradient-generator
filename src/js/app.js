@@ -51,14 +51,16 @@ $addBtn.addEventListener("click", () => {
 // Subtract a color on colors array
 $subtractBtn.addEventListener("click", () => {
 
-    if ($inputsColor.length > 2){
-
-        $inputsColor[$inputsColor.length - 1].remove();
-        colorsList.pop();     
-    
-    } else{
+    const $allInputs = document.querySelectorAll("#colors > fieldset > input[type='color']");
+    if ($allInputs.length < 3){
 
         return;
+        
+    } else{
+        
+        $allInputs[$allInputs.length - 1].remove();
+        colorsList.pop();
+        $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;     
 
     }
 });
