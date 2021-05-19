@@ -11,7 +11,8 @@ const $random = document.querySelector("#buttons > button:nth-child(3)");
 
 // Initialisation
 
-let colorsList = ["#3a3aa1", "#37907a"]
+let colorsList = ["#3a3aa1", "#37907a"];
+let index = 3;
 $inputsColor[0].value = colorsList[0];
 $inputsColor[1].value = colorsList[1];   
 
@@ -19,14 +20,47 @@ $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-
 
 // Add a color on colors array
 $addBtn.addEventListener("click", () => {
-   
-    const inputColor = document.createElement("input");
-    inputColor.setAttribute("type", "color");
-    inputColor.value = "#3a3aa1";
-    colorsList.push = inputColor.value;
-    $fieldset.appendChild(inputColor);
 
-    console.log(colorsList);
+    const $allInputs = document.querySelectorAll("#colors > fieldset > input[type='color']");
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    
+    if ($allInputs.length > 7 ){
+
+        return;
+   
+    } else {
+
+        const newColor = document.createElement("input");
+        newColor.setAttribute("type", "color");
+        newColor.setAttribute('data-index', index);
+        newColor.value = `#${randomColor.toUpperCase()}`; 
+        $fieldset.appendChild(newColor);
+
+        colorsList.push(`#${randomColor.toUpperCase()}`);
+        
+        $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+        
+        index++;
+        console.log(colorsList);
+        console.log($allInputs.length);
+
+    }
+
+});
+
+// Subtract a color on colors array
+$subtractBtn.addEventListener("click", () => {
+
+    if ($inputsColor.length > 2){
+
+        $inputsColor[$inputsColor.length - 1].remove();
+        colorsList.pop();     
+    
+    } else{
+
+        return;
+
+    }
 });
 
 // Listening change of input color - WIP
