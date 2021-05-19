@@ -44,7 +44,9 @@ $addBtn.addEventListener("click", () => {
         console.log(colorsList);
         console.log($allInputs.length);
 
+        //$allInputs.forEach( input => input.addEventListener("input", updateColor));
     }
+
 
 });
 
@@ -52,26 +54,37 @@ $addBtn.addEventListener("click", () => {
 $subtractBtn.addEventListener("click", () => {
 
     const $allInputs = document.querySelectorAll("#colors > fieldset > input[type='color']");
+    
     if ($allInputs.length < 3){
 
         return;
         
-    } else{
+    } else {
         
-        $allInputs[$allInputs.length - 1].remove();
         colorsList.pop();
+        $allInputs[$allInputs.length - 1].remove();
+        index--;
         $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;     
-
+        
+        //$allInputs.forEach( input => input.addEventListener("input", updateColor));
+    
     }
+
+    
 });
 
 // Listening change of input color - WIP
-$inputsColor.forEach( color => {
-    
-    color.addEventListener("change", e =>{
-        color.value = e.target.value;
-        console.log(color.value);
-        console.log(colorsList)
-    });
 
-});
+
+const updateColor = e => {
+
+    let currentValue = e.target.value;
+    let inputTochange = e.target.getAttribute("data-index");
+    
+    colorsList[inputTochange - 1] = currentValue;
+
+    $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+
+}
+
+$inputsColor.forEach( input => input.addEventListener("input", updateColor));
