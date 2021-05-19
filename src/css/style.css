@@ -7,11 +7,15 @@
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+
 header{
     width: 65%;
     margin: auto;
     padding: 3vh;
     text-align: center;
+    color: white;
+    letter-spacing: .05em;
+    text-shadow: 0.1em 0.1em 0.1em rgb(0 0 0 / 50%);
     box-shadow: 0.1em 0.1em 0.3em rgb(0 0 0 / 50%);
     background-color: rgb(255 255 255 / 50%);
     backdrop-filter: blur(4px);
@@ -30,7 +34,7 @@ form{
     width: 35%;
     padding: 2vh 1vw;
     box-shadow: 0.1em 0.1em 0.3em rgb(0 0 0 / 50%);
-    background-color: rgb(255 255 255 / 50%);
+    background-color: rgb(255 255 255 / 25%);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 0 0 .3em .3em;
@@ -59,7 +63,13 @@ button{
     font-weight: bold;
     background-color: white;
     box-shadow: 0.1em 0.1em 0.3em rgb(0 0 0 / 50%);
-    border-radius: .09em;
+    border-radius: .1em;
+    transition: all 200ms;
+}
+
+button:hover{
+    color: white;
+    background-color: #333;
 }
 
 #buttons button:nth-child(1),
@@ -71,5 +81,6 @@ button{
     padding: 0.5em;
     text-transform: uppercase;
 }
+
 
 
