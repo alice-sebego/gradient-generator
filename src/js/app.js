@@ -18,7 +18,7 @@ $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-
 $range.addEventListener("input", e => {
 
     $range.value = e.target.value;
-    
+
     $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
 
 });
@@ -38,6 +38,7 @@ const updateColor = e => {
 
 }
 
+// Listening event of change on input's color
 $inputsColor.forEach( input => input.addEventListener("input", updateColor));
  
 /**
@@ -99,3 +100,21 @@ const addOrSubtractInput = (e) => {
 
 // Listening event of click on Add and Subtract buttons
 $btns.forEach( btn => btn.addEventListener("click", addOrSubtractInput ));
+
+// Handle event of click on Random input
+$random.addEventListener("click", () => {
+
+    const $allInputs = document.querySelectorAll("fieldset > input[type='color']");
+    
+    colorsList = [];
+
+    $allInputs.forEach( input => {
+
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        input.value = `#${randomColor.toUpperCase()}`;
+        colorsList.push(input.value);
+        $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+    
+    });
+
+});
