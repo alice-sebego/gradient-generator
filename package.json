@@ -1,0 +1,30 @@
+{
+  "name": "gradient-generator",
+  "version": "1.0.0",
+  "description": "Create a gradient generator with JavaScript vanilla",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alice-sebego/gradient-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alice-sebego/gradient-generator/issues"
+  },
+  "homepage": "https://github.com/alice-sebego/gradient-generator#readme",
+  "devDependencies": {
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

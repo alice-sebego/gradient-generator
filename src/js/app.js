@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 // Elements of DOM
 const $body = document.querySelector("body");
 const $fieldset = document.querySelector("fieldset");
