@@ -108,13 +108,13 @@ $random.addEventListener("click", () => {
     
     colorsList = [];
 
-    $allInputs.forEach( input => {
+    for(let input of $allInputs){
 
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         input.value = `#${randomColor.toUpperCase()}`;
         colorsList.push(input.value);
         $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
     
-    });
+    }
 
 });
