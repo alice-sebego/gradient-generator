@@ -3,15 +3,10 @@ const $body = document.querySelector("body");
 const $fieldset = document.querySelector("fieldset");
 const $inputsColor = document.querySelectorAll("#colors > fieldset > input[type='color']");
 const $range = document.querySelector("#deg");
-console.log($range.value);
-
-const $btns = document.querySelectorAll("#buttons > button")
-const $addBtn = document.querySelector("#buttons > button:nth-child(1)");
-const $subtractBtn = document.querySelector("#buttons > button:nth-child(2)");
+const $btns = document.querySelectorAll("#buttons > button");
 const $random = document.querySelector("#buttons > button:nth-child(3)");
 
 // Initialisation
-
 let colorsList = ["#3a3aa1", "#37907a"];
 let index = 3;
 $inputsColor[0].value = colorsList[0];
@@ -19,7 +14,19 @@ $inputsColor[1].value = colorsList[1];
 
 $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
 
-// Listening change of input color - WIP
+// Handle change of input of gradient's degree
+$range.addEventListener("input", e => {
+
+    $range.value = e.target.value;
+    
+    $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+
+});
+
+/**
+ * Handle change of input color
+ * @param {event} e 
+ */
 const updateColor = e => {
 
     let currentValue = e.target.value;
@@ -32,8 +39,12 @@ const updateColor = e => {
 }
 
 $inputsColor.forEach( input => input.addEventListener("input", updateColor));
-
-// Add or subtract a color on colors array
+ 
+/**
+ * Add or subtract a color on colors array
+ * @param {event} e 
+ * @returns 
+ */
 const addOrSubtractInput = (e) => {
 
     const $allInputs = document.querySelectorAll("#colors > fieldset > input[type='color']");
@@ -86,6 +97,5 @@ const addOrSubtractInput = (e) => {
     
 }
 
-$btns.forEach( btn => {
-    btn.addEventListener("click", addOrSubtractInput );
-});
+// Listening event of click on Add and Subtract buttons
+$btns.forEach( btn => btn.addEventListener("click", addOrSubtractInput ));
