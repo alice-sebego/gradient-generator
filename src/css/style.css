@@ -127,6 +127,11 @@ button:active{
     color: rgb(221, 6, 60);
 }
 
+#preview div{
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
 /* Display code of generated gradient*/
 
 code{
@@ -137,8 +142,38 @@ code{
     font: smaller 'Source Code Pro';
     padding: 1em;
     letter-spacing: .02em;
+    text-align: left;
 }
 
 .none{
     display: none;
+}
+
+/* Footer */
+
+footer{
+    width: 65%;
+    margin: 20vh auto 0;
+    padding: 4vh 5vw;
+    text-align: center;
+    letter-spacing: .05em;
+    font-size: 0.9em;
+    color: #333;
+    box-shadow: 0.1em 0.1em 0.3em rgb(0 0 0 / 50%);
+    background-color: rgb(255 255 255 / 50%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: .3em .3em 0 0;
+    line-height: 2em;
+}
+
+footer a{
+    color: #333;
+    text-decoration:underline;
+    transition: text-decoration 1s ease-in-out;
+}
+
+footer a:hover,
+footer a:active{
+    text-decoration: overline;
 }

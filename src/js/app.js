@@ -12,6 +12,7 @@ const $displaycode = document.querySelector("#display-code button");
 const $section = document.querySelector("#generator");
 const $preview = document.querySelector("#preview div");
 const $code = document.querySelector("#preview code");
+const $year = document.querySelector("#year");
  
 // Messages for user
 const messages = {
@@ -142,3 +143,6 @@ $random.addEventListener("click", () => {
 
 // Manager display of code CSS preview 
 $displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
+
+// Display current year on the footer
+util.displayYear($year);

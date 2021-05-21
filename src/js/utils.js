@@ -22,3 +22,11 @@ export const removeElement = (element) => {
     }, 4000);
 }
 
+/**
+ * Display current year
+ * @param {HTMLSpanElement} span 
+ */
+export const displayYear = (span)=> {
+    const date = new Date(Date.now());
+    span.innerHTML = date.getFullYear();
+}
