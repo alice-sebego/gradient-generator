@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap&family=Source+Code+Pro&display=swap');
 
 *, ::before, ::after{
     box-sizing: border-box;
@@ -78,7 +78,8 @@ input[type="color"]{
     justify-content: space-around;
 }
 
-button{
+button,
+button:visited{
     border: none;
     font-weight: bold;
     background-color: white;
@@ -87,7 +88,8 @@ button{
     transition: all 200ms;
 }
 
-button:hover{
+button:hover,
+button:active{
     color: white;
     background-color: #333;
 }
@@ -115,10 +117,14 @@ button:hover{
 
 #infoUser, #preview div{
     margin-top: 2vh;
-    background-color: white;
+    background-color: rgb(255 255 255 / 50%);
     padding: 0.5em;
     border-radius: .3em;
     text-align: center;
+}
+
+#infoUser{
+    color: rgb(221, 6, 60);
 }
 
 /* Display code of generated gradient*/
@@ -128,7 +134,11 @@ code{
     margin-top: 1em;
     background-color: #333;
     color: white;
-    font-size: smaller;
+    font: smaller 'Source Code Pro';
     padding: 1em;
-    letter-spacing: .07em;
+    letter-spacing: .02em;
+}
+
+.none{
+    display: none;
 }

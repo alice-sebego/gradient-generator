@@ -8,10 +8,11 @@ const $inputsColor = document.querySelectorAll("#colors > fieldset > input[type=
 const $range = document.querySelector("#deg");
 const $btns = document.querySelectorAll("#buttons > button");
 const $random = document.querySelector("#buttons > button:nth-child(3)");
-const $section = document.querySelector("section");
+const $displaycode = document.querySelector("#display-code button");
+const $section = document.querySelector("#generator");
+const $preview = document.querySelector("#preview div");
 const $code = document.querySelector("#preview code");
  
-
 // Messages for user
 const messages = {
     EightInput: "Vous pouvez utiliser jusqu'à 8 entrées de couleurs",
@@ -138,3 +139,6 @@ $random.addEventListener("click", () => {
     }
 
 });
+
+// Manager display of code CSS preview 
+$displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
