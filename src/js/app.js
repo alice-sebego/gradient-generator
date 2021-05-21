@@ -9,13 +9,14 @@ const $range = document.querySelector("#deg");
 const $btns = document.querySelectorAll("#buttons > button");
 const $random = document.querySelector("#buttons > button:nth-child(3)");
 const $section = document.querySelector("section");
+const $code = document.querySelector("#preview code");
+ 
 
 // Messages for user
 const messages = {
     EightInput: "Vous pouvez utiliser jusqu'à 8 entrées de couleurs",
     TwoInput: "Vous devez avoir 2 entrées de couleurs minimum"
 }
-
 
 // Initialisation
 let colorsList = ["#3a3aa1", "#37907a"];
@@ -24,6 +25,7 @@ $inputsColor[0].value = colorsList[0];
 $inputsColor[1].value = colorsList[1];   
 
 $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+$code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
 
 // Handle change of input of gradient's degree
 $range.addEventListener("input", e => {
@@ -31,7 +33,7 @@ $range.addEventListener("input", e => {
     $range.value = e.target.value;
 
     $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
-
+    $code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
 });
 
 /**
@@ -46,7 +48,7 @@ const updateColor = e => {
     colorsList[inputTochange - 1] = currentValue;
 
     $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
-
+    $code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
 }
 
 // Listening event of change on input's color
@@ -82,6 +84,7 @@ const addOrSubtractInput = e => {
             colorsList.push(`#${randomColor.toUpperCase()}`);
             
             $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
+            $code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
             
             index ++;
             
@@ -108,7 +111,7 @@ const addOrSubtractInput = e => {
             $allInputs[$allInputs.length - 1].remove();
             index --;
             $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;     
-        
+            $code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
         }
 
     }
@@ -131,7 +134,7 @@ $random.addEventListener("click", () => {
         input.value = `#${randomColor.toUpperCase()}`;
         colorsList.push(input.value);
         $body.style.background = `linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed`;
-    
+        $code.innerHTML = `background: linear-gradient(${$range.value}deg, ${colorsList}) no-repeat center center fixed;`;
     }
 
 });

@@ -30,17 +30,25 @@ header{
     border-radius: 0 0 .3em .3em;
 }
 
+#generator{
+    padding: 20vh 0 2vh 0;   
+}
+
+section:nth-child(2){
+    padding: 2vh 0;
+}
+
 section{
-    padding: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+/* Elements of form */
 form{
     width: 35%;
-    padding: 2vh 1vw;
+    padding: 1vh 1vw;
     box-shadow: 0.1em 0.1em 0.3em rgb(0 0 0 / 50%);
     background-color: rgb(255 255 255 / 25%);
     backdrop-filter: blur(4px);
@@ -89,15 +97,38 @@ button:hover{
     padding: 0.5em 0.8em;
 }
 
-#buttons button:nth-child(3){
+#buttons button:nth-child(3),
+#display-code button{
     padding: 0.5em;
     text-transform: uppercase;
 }
 
-#infoUser{
+#display-code{
+    margin-top: 3vh;
+}
+
+#display-code button{
+    width: 100%;
+}
+
+/* User's information message*/
+
+#infoUser, #preview div{
     margin-top: 2vh;
     background-color: white;
     padding: 0.5em;
     border-radius: .3em;
+    text-align: center;
 }
 
+/* Display code of generated gradient*/
+
+code{
+    display: inline-block;
+    margin-top: 1em;
+    background-color: #333;
+    color: white;
+    font-size: smaller;
+    padding: 1em;
+    letter-spacing: .07em;
+}

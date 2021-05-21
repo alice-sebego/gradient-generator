@@ -12,7 +12,7 @@
     <header>
         <h1>Générateur de dégradé en CSS</h1>
     </header>
-    <section>
+    <section id="generator">
         <form>
             <div id="colors">
                 <fieldset>
@@ -26,7 +26,16 @@
                 <button type="button" value="subtract">-</button>
                 <button type="button" value="Random">Random</button>
             </div>
+            <div id="display-code">
+                <button type="button" value="code">Voir le code du gradient</button>
+            </div>
         </form>
+    </section>
+    <section id="preview">
+        <div>
+            <p>Voici le code CSS de votre dégradé</p>
+            <code></code>
+        </div>
     </section>
     
 </body>
