@@ -35,6 +35,7 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 form{
@@ -93,5 +94,10 @@ button:hover{
     text-transform: uppercase;
 }
 
-
+#infoUser{
+    margin-top: 2vh;
+    background-color: white;
+    padding: 0.5em;
+    border-radius: .3em;
+}
 

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import * as util from './utils';
 
 // Elements of DOM
 const $body = document.querySelector("body");
@@ -7,6 +8,14 @@ const $inputsColor = document.querySelectorAll("#colors > fieldset > input[type=
 const $range = document.querySelector("#deg");
 const $btns = document.querySelectorAll("#buttons > button");
 const $random = document.querySelector("#buttons > button:nth-child(3)");
+const $section = document.querySelector("section");
+
+// Messages for user
+const messages = {
+    EightInput: "Vous pouvez utiliser jusqu'à 8 entrées de couleurs",
+    TwoInput: "Vous devez avoir 2 entrées de couleurs minimum"
+}
+
 
 // Initialisation
 let colorsList = ["#3a3aa1", "#37907a"];
@@ -48,7 +57,7 @@ $inputsColor.forEach( input => input.addEventListener("input", updateColor));
  * @param {event} e 
  * @returns 
  */
-const addOrSubtractInput = (e) => {
+const addOrSubtractInput = e => {
 
     const $allInputs = document.querySelectorAll("#colors > fieldset > input[type='color']");
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -57,6 +66,9 @@ const addOrSubtractInput = (e) => {
 
         if ($allInputs.length > 7 ){
 
+            util.displayMsgInfo($section, messages.EightInput);
+            const $infoUser = document.querySelector("#infoUser");
+            util.removeElement($infoUser);
             return;
        
         } else {
@@ -84,6 +96,9 @@ const addOrSubtractInput = (e) => {
 
         if ($allInputs.length < 3){
 
+            util.displayMsgInfo($section, messages.TwoInput);
+            const $infoUser = document.querySelector("#infoUser");
+            util.removeElement($infoUser);
             return;
             
         } else {
