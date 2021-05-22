@@ -10,7 +10,8 @@ const $btns = document.querySelectorAll("#buttons > button");
 const $random = document.querySelector("#buttons > button:nth-child(3)");
 const $displaycode = document.querySelector("#display-code button");
 const $section = document.querySelector("#generator");
-const $preview = document.querySelector("#preview div");
+const $preview = document.querySelector("#preview > div");
+console.log($preview);
 const $code = document.querySelector("#preview code");
 const $copy = document.querySelector("#preview button");
 const $year = document.querySelector("#year");
@@ -142,9 +143,6 @@ $random.addEventListener("click", () => {
 
 });
 
-// Manager display of code CSS preview
-$displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
-
 /**
  * Copy on clipboard
  * @param {HTMLElement} code 
@@ -183,8 +181,11 @@ $displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
         selection.removeAllRanges();
     }
 }
-
+// Listening click event in order to copy code CSS
 $copy.addEventListener( 'click', clipboard);
+
+// Manager display of code CSS preview
+$displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
 
 // Display current year on the footer
 util.displayYear($year);
