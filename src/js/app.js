@@ -12,6 +12,7 @@ const $displaycode = document.querySelector("#display-code button");
 const $section = document.querySelector("#generator");
 const $preview = document.querySelector("#preview div");
 const $code = document.querySelector("#preview code");
+const $copy = document.querySelector("#preview button");
 const $year = document.querySelector("#year");
  
 // Messages for user
@@ -141,8 +142,12 @@ $random.addEventListener("click", () => {
 
 });
 
-// Manager display of code CSS preview 
+// Manager display of code CSS preview
 $displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
+
+// Copy code CSS preview
+$copy.addEventListener( 'click', util.clipboard($code));
+
 
 // Display current year on the footer
 util.displayYear($year);

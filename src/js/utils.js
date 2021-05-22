@@ -30,3 +30,34 @@ export const displayYear = (span)=> {
     const date = new Date(Date.now());
     span.innerHTML = date.getFullYear();
 }
+
+/**
+ * Copy on clipboard
+ * @param {HTMLElement} code 
+ */
+export const clipboard = (code)=>{
+
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNode(code);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+        var result = document.execCommand('copy');
+        if (result) {
+            alert('Copié !');
+        }
+    }
+    catch(err) {
+        alert(err);
+    }
+
+    // End of process
+    selection = window.getSelection();
+    if (typeof selection.removeRange === 'function') {
+        selection.removeRange(range);
+    } else if (typeof selection.removeAllRanges === 'function') {
+        selection.removeAllRanges();
+    }
+}
