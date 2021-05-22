@@ -159,6 +159,10 @@ code{
     display: none;
 }
 
+#copied{
+    color: rgb(68, 124, 4);
+}
+
 /* Footer */
 
 footer{

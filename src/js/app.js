@@ -145,9 +145,46 @@ $random.addEventListener("click", () => {
 // Manager display of code CSS preview
 $displaycode.addEventListener("click", () => $preview.classList.toggle("none"))
 
-// Copy code CSS preview
-$copy.addEventListener( 'click', util.clipboard($code));
+/**
+ * Copy on clipboard
+ * @param {HTMLElement} code 
+ */
+ const clipboard = () =>{
 
+    const range = document.createRange();
+    let selection = window.getSelection();
+    range.selectNode($code);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+        const result = document.execCommand('copy');
+        if (result) {
+            const $copied = document.createElement("div");
+            $copied.setAttribute("id", "copied");
+            $copied.innerHTML = "Copié !";
+            $preview.appendChild($copied);
+            util.removeElement($copied);
+        }
+    }
+    catch(err) {
+        const $copied = document.createElement("div");
+        $copied.setAttribute("id", "infoUser");
+        $copied.innerHTML = `Dsl :( Une erreur ${err} s'est produite`;
+        $preview.appendChild($copied);
+        util.removeElement($copied);
+    }
+
+    // End of process
+    selection = window.getSelection();
+    if (typeof selection.removeRange === 'function') {
+        selection.removeRange(range);
+    } else if (typeof selection.removeAllRanges === 'function') {
+        selection.removeAllRanges();
+    }
+}
+
+$copy.addEventListener( 'click', clipboard);
 
 // Display current year on the footer
 util.displayYear($year);
