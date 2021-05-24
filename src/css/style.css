@@ -146,7 +146,7 @@ section#preview > div{
 }
 
 section#preview button{
-    width: 100%;
+    width: 60%;
     padding: 0.5em;
     border-radius: 0 0 .3em .3em;
 }
