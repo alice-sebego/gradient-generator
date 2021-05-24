@@ -70,6 +70,8 @@ input[type="color"]{
     width: 100%;
     height: 5vh;
     margin: 1vh 0;
+    border-radius: .4em;
+    border: none;
 }
 
 #buttons{
@@ -113,6 +115,10 @@ button:active{
     width: 100%;
 }
 
+input, button{
+    cursor: pointer;
+}
+
 /* User's information message*/
 
 #infoUser, #preview div{
@@ -140,6 +146,7 @@ section#preview > div{
 }
 
 section#preview button{
+    width: 100%;
     padding: 0.5em;
     border-radius: 0 0 .3em .3em;
 }
@@ -157,6 +164,10 @@ code{
 
 .none{
     display: none !important;
+}
+
+.block{
+    display: block !important;
 }
 
 #copied{
@@ -190,4 +201,35 @@ footer a{
 footer a:hover,
 footer a:active{
     text-decoration: overline;
+}
+
+/* Handle size's screen for RWD */
+@media screen and (max-width: 700px) {
+    
+    form{
+        width: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 398px) {
+    
+    header, footer{
+        width: 90%;
+    }
+    
+    h1{
+        font-size: 1.8em;
+    }
+    
+    form{
+        width: 65%;
+        padding: 1.5vh 1.5vw;
+    }
+
+    footer{
+        padding: 2vh 4vw;
+        font-size: 0.8em;
+    }
+    
 }
